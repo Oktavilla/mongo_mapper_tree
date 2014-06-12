@@ -47,7 +47,7 @@ module MongoMapper
 
       def ancestors
         return [] if root?
-        tree_search_class.find(self[path_field])
+        tree_search_class.find(self[path_field]).sort_by &:depth
       end
 
       def self_and_ancestors
